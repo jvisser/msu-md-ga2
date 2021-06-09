@@ -1,0 +1,1 @@
+D:\Emulators\retro\emulator\retroarch\retroarch.exe -L "D:\Emulators\retro\emulator\retroarch\cores\genesis_plus_gx_libretro.dll" -c "D:\Emulators\retro\emulator\retroarch\retroarch.default.cfg" ".\OUTPUT\out.md"
