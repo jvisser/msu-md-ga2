@@ -1,1 +1,1 @@
-srecpatch.exe "ROMS\in.md" OUTPUT\out.md<srecfile.txt
+srecpatch.exe "ROMS\in_padded.md" OUTPUT\out.md<srecfile.txt
