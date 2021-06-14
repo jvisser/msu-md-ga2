@@ -110,10 +110,7 @@ play_music_track
         sub.b   #$81,d7
         ext.w   d7
         add.w   d7,d7
-        add.w   d7,d7
         lea     AUDIO_TBL,a0
-        move.w  #0,MSU_COMM_ARG32               ; Set extended arg (loop offset)
-        move.w  2(a0,d7),MSU_COMM_ARG32+2
         move.w  (a0,d7),MSU_COMM_CMD            ; Send msu cmd
         addq.b  #1,MSU_COMM_CMD_CK              ; Increment command clock
         movem.l  (sp)+,d7/a0
@@ -130,7 +127,7 @@ stop_sound
 
 
 fade_out
-       MSU_COMMAND MSU_PAUSE, 75              ; Seems to be like a 3s fadeout in the original game which in practise is way too long. Make it 1s.
+       MSU_COMMAND MSU_PAUSE, 75              ; Seems to be like a 3s fadeout in the original game which in practice is way too long. Make it 1s.
 
        ; Explicitly do not run original code!
        ; Fade out expires only after the next song has already started and then calls stop_sound.
@@ -142,22 +139,22 @@ fade_out
 
         align 2
 AUDIO_TBL                                   ; #Track Name
-        dc.w    MSU_PLAY_LOOP|02,0          ; 02 - Ravaged Village
-        dc.w    MSU_PLAYOF|01,27*75         ; 01 - Title Theme
-        dc.w    MSU_PLAY_LOOP|04,0          ; 04 - Boss Theme 1
-        dc.w    MSU_PLAY_LOOP|12,0          ; 12 - Castle
-        dc.w    MSU_PLAY_LOOP|10,0          ; 10 - Boss Theme 2
-        dc.w    MSU_PLAY_LOOP|07,0          ; 07 - Ruins
-        dc.w    MSU_PLAY_LOOP|08,0          ; 08 - Tower
-        dc.w    MSU_PLAYOF|15,9*75          ; 15 - Credits
-        dc.w    MSU_PLAY_LOOP|09,0          ; 09 - Dragon's Throat Cave
-        dc.w    MSU_PLAY_LOOP|11,0          ; 11 - Castle Gates
-        dc.w    MSU_PLAY_LOOP|13,0          ; 13 - Dark Guld's Chamber
-        dc.w    MSU_PLAY|14,0               ; 14 - Ending
-        dc.w    MSU_PLAY|16,0               ; 16 - Final Score
-        dc.w    MSU_PLAY|03,0               ; 03 - Game Over
-        dc.w    MSU_PLAY_LOOP|06,0          ; 06 - Intermission
-        dc.w    MSU_PLAY_LOOP|05,0          ; 05 - Bonus Stage
+        dc.w    MSU_PLAY_LOOP|02            ; 02 - Ravaged Village
+        dc.w    MSU_PLAY_LOOP|01            ; 01 - Title Theme
+        dc.w    MSU_PLAY_LOOP|04            ; 04 - Boss Theme 1
+        dc.w    MSU_PLAY_LOOP|12            ; 12 - Castle
+        dc.w    MSU_PLAY_LOOP|10            ; 10 - Boss Theme 2
+        dc.w    MSU_PLAY_LOOP|07            ; 07 - Ruins
+        dc.w    MSU_PLAY_LOOP|08            ; 08 - Tower
+        dc.w    MSU_PLAY_LOOP|15            ; 15 - Credits
+        dc.w    MSU_PLAY_LOOP|09            ; 09 - Dragon's Throat Cave
+        dc.w    MSU_PLAY_LOOP|11            ; 11 - Castle Gates
+        dc.w    MSU_PLAY_LOOP|13            ; 13 - Dark Guld's Chamber
+        dc.w    MSU_PLAY|14                 ; 14 - Ending
+        dc.w    MSU_PLAY|16                 ; 16 - Final Score
+        dc.w    MSU_PLAY|03                 ; 03 - Game Over
+        dc.w    MSU_PLAY_LOOP|06            ; 06 - Intermission
+        dc.w    MSU_PLAY_LOOP|05            ; 05 - Bonus Stage
 
 ; MSU-MD DRIVER: -----------------------------------------------------------------------------------
 
