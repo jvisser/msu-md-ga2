@@ -9,6 +9,7 @@ SourceROMs:    Golden Axe II (W) [!].md (CRC: 725E0A18)
 
 Thanks:        ArcadeTV for providing the patch framework (https://github.com/ArcadeTV)
                Krikzz for the msu-md driver and Mega Everdrive (https://github.com/krikzz)
+               pepodmc for the SoundPack and testing
 
 Source:        https://github.com/jvisser/msu-md-ga2
 
